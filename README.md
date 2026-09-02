@@ -1,6 +1,6 @@
 # 🏪 Kiosco Page
 
-Frontend en **React + TypeScript** para la [Kiosco API](../kiosco-api), pensado como proyecto hermano: consume los endpoints REST de `kiosco-api` para mostrar un catálogo navegable, un carrito de compra y un panel de administración con operaciones CRUD completas.
+Frontend en **React + TypeScript** combinado con a API https://github.com/bochita08/Kiosco---API-postman-swagger-UI-Newman , pensado como proyecto hermano: consume los endpoints REST de `kiosco-api` para mostrar un catálogo navegable, un carrito de compra y un panel de administración con operaciones CRUD completas.
 
 ## 📋 Stack técnico
 
