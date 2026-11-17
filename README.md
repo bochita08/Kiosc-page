@@ -16,6 +16,12 @@ Frontend en **React + TypeScript** combinado con a API https://github.com/bochit
 | Testing | Vitest + Testing Library + MSW | unitarios, de componentes e integración simulando la API |
 | Linter | oxlint | reglas de React/Hooks |
 
+## 🌐 Demo en vivo
+
+**https://bochita08.github.io/Kiosc-page/**
+
+La demo publicada en GitHub Pages no tiene la Kiosco API detrás: la simula en el navegador con [MSW](https://mswjs.io/) usando los mismos handlers que los tests (`src/demo.ts`, se activa con `VITE_DEMO=1`). Se puede navegar el catálogo, usar el carrito y hacer altas/bajas/modificaciones; los cambios viven en memoria y se pierden al recargar. Cada push a `master` la vuelve a publicar (`.github/workflows/pages.yml`).
+
 ## 🔗 Cómo se acopla con kiosco-api
 
 Este proyecto **no tiene backend propio**: todo el catálogo sale de `GET /productos` de kiosco-api, y las altas/bajas/modificaciones pegan directo contra `POST` / `PUT` / `DELETE /productos/:id`. La URL base se configura por variable de entorno (`VITE_API_URL`, ver `.env.example`), por defecto `http://localhost:3000`.

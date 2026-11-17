@@ -2,7 +2,7 @@ import { http, HttpResponse } from "msw";
 import type { Producto } from "../../types/producto";
 import { crearProductosFixture } from "./fixtures";
 
-const BASE_URL = "http://localhost:3000";
+const API_LOCAL = "http://localhost:3000";
 
 export let productosDb: Producto[] = crearProductosFixture();
 
@@ -14,7 +14,9 @@ function siguienteId(): number {
   return productosDb.length === 0 ? 1 : Math.max(...productosDb.map((p) => p.id)) + 1;
 }
 
-export const handlers = [
+// La misma API simulada sirve para los tests y para la demo publicada (otra URL base).
+export function crearHandlers(BASE_URL: string) {
+  return [
   http.get(`${BASE_URL}/productos`, () => {
     return HttpResponse.json(productosDb);
   }),
@@ -102,3 +104,6 @@ export const handlers = [
     return new HttpResponse(null, { status: 204 });
   }),
 ];
+}
+
+export const handlers = crearHandlers(API_LOCAL);

@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import App from "./App";
 import { CartProvider } from "./context/CartContext";
+import { iniciarDemo } from "./demo";
 import "./index.css";
 
 const queryClient = new QueryClient({
@@ -16,11 +17,13 @@ const queryClient = new QueryClient({
   },
 });
 
+await iniciarDemo();
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <CartProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
           <App />
           <Toaster position="top-right" />
         </BrowserRouter>

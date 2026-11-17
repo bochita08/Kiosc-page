@@ -5,6 +5,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
+  // En GitHub Pages el sitio vive en /Kiosc-page/ (solo cambia el build).
+  base: process.env.GITHUB_PAGES ? "/Kiosc-page/" : "/",
   plugins: [react(), tailwindcss()],
   test: {
     environment: "jsdom",
